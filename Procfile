@@ -1,1 +1,1 @@
-web: chmod a+x main.exe; ./main.exe
+web: ./main.exe
