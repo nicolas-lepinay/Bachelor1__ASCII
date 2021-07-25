@@ -1,1 +1,1 @@
-web: ./main.exe
+web: bash main.exe
