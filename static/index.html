@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ASCII Art Web</title>
+    <link href="static/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="inputs">
+            <form method="POST" action="/">
+                <h1 class="title"> &lt; ASCII ART WEB /&gt;</h1>
+                <!-- Barre de saisie -->
+                <input class="text" name="textToPrint" type="text" value="{{.Input}}" placeholder="Type your text..." />
+
+                <!-- Sélecteur de polices -->
+                <select class="selector" name="font">
+          <option value="standard" selected>Standard</option>
+          <option value="shadow">Shadow</option>
+          <option value="thinkertoy">Thinkertoy</option>
+        </select><br>
+
+                <!-- Boutons 'Generate' ou 'Download' -->
+                <input class="button" type="submit" value="Create" id="gen" />
+                <input class="button" type="submit" value="Download" id="down" /><br>
+
+                <!-- Sélecteur invisible 'Generate' ou 'Download' -->
+                <select class="selector" name="genOrDown" id="genOrDown" style="display: none">
+          <option value="generate"></option>
+          <option value="download"></option>
+        </select><br>
+            </form>
+        </div>
+
+        <!--Div où le résultat est affiché -->
+        <div class="result">
+            <pre>{{.Art}}</pre>
+        </div>
+    </div>
+
+    <script>
+        generateButton = document.getElementById('gen')
+        downloadButton = document.getElementById('down')
+        selector = document.getElementById('genOrDown') // Selecteur invisible (style="display: none")
+
+        generateButton.addEventListener('click', function() {
+            selector.value = "generate"
+        });
+
+        downloadButton.addEventListener('click', function() {
+            selector.value = "download"
+        });
+    </script>
+
+
+</body>
+
+</html>
