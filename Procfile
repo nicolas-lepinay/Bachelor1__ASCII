@@ -1,1 +1,1 @@
-web: bash main.exe
+web: chmod a+x main.exe; ./main.exe
